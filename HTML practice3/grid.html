@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<style>
+    :root {
+        --bg: #ffffff;
+        --text: #000000;
+        --header: #3ba04c;
+        --sidebar: #f0f0f0;
+        --footer: #3ba04c;
+    }
+
+    body.dark {
+        --bg: #1e1e1e;
+        --text: #ffffff;
+        --header: #2a2a2a;
+        --sidebar: #333333;
+        --footer: #222222;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 60px 1fr 40px;
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+
+    header {
+        grid-area: header;
+        background: var(--header);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 20px;
+    }
+
+    header label {
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    aside {
+        grid-area: sidebar;
+        background: var(--sidebar);
+        padding: 20px;
+    }
+
+    aside a {
+        display: block;
+        margin-bottom: 12px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 16px;
+    }
+
+    main {
+        grid-area: main;
+        padding: 20px;
+    }
+
+    footer {
+        grid-area: footer;
+        background: var(--footer);
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <div>Admin Dashboard</div>
+        <label>
+            <input type="checkbox" id="themeToggle">
+            Dark Mode
+        </label>
+    </header>
+
+    <aside>
+        <a href="#">Home</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
+    </aside>
+
+    <main>
+        <h2>Welcome, Admin!</h2>
+        <p>This is the main content area. Add charts, tables, or reports here.</p>
+    </main>
+
+    <footer>
+        © 2025 Admin Panel
+    </footer>
+
+<script>
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark");
+    });
+</script>
+
+</body>
+</html>
